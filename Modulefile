@@ -1,0 +1,8 @@
+name    'truesneel-ipa'
+version '0.1.0'
+source 'https://github.com/truesneel/truesneel-ipa'
+author 'truesneel'
+license 'Apache License, Version 2.0'
+summary 'Simple IPA Management Sodule'
+description 'Manages freeipa/ipa services for clients and services'
+project_page 'https://github.com/truesneel/truesneel-ipa'

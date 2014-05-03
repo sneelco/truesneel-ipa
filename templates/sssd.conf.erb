@@ -1,0 +1,38 @@
+[domain/<%= ipa_domain %>]
+
+cache_credentials = True
+krb5_store_password_if_offline = True
+ipa_domain = <%= ipa_domain %>
+id_provider = ipa
+auth_provider = ipa
+access_provider = ipa
+ipa_hostname = <%= @fqdn %>
+chpass_provider = ipa
+ipa_server = _srv_, <%= ipa_server %>
+ldap_tls_cacert = /etc/ipa/ca.crt
+
+# configure SUDO and GSSAPI authentication
+sudo_provider = ldap
+ldap_uri = ldap://<%= ipa_server %>
+ldap_sudo_search_base = <%= search_base %>
+ldap_sasl_mech = GSSAPI
+ldap_sasl_authid = host/<%= @fqdn %>
+ldap_sasl_realm = <%= ipa_realm %>
+krb5_server = <%= ipa_server %>
+
+[sssd]
+services = nss, pam, ssh, sudo
+config_file_version = 2
+
+domains = <%= ipa_domain %>
+[nss]
+
+[pam]
+
+[sudo]
+
+[autofs]
+
+[ssh]
+
+[pac]
