@@ -58,7 +58,7 @@ class ipa::client (
 
   #If we have search_Base, default to free-ipa's standard sudoers OU based on realm
   if $sudo_search_base == '' {
-    $search_base = inline_template('ou=sudoers,dc=<%= ipa_realm.split(".").join(",dc=") %>')
+    $search_base = inline_template('ou=SUDOers,dc=<%= ipa_realm.split(".").join(",dc=") %>')
   } else {
     $search_base = $sudo_search_base
   }
