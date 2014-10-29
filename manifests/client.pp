@@ -84,6 +84,9 @@ class ipa::client (
   file { '/etc/sssd/sssd.conf':
     ensure  => present,
     content => template('ipa/sssd.conf.erb'),
+    owner   => 'root',
+    group   => 'root',
+    mode    => 0600,
     notify  => Service['sssd'],
   }
 
